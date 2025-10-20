@@ -25,14 +25,20 @@
         <a href="#contraindicacoes">Contraindicações</a>
         <a href="#comprar">Comprar</a>
       </nav>
+      
       <div class="frete">
         <h3>Entrega e Frete</h3>
-        <p>Calcule o prazo e o custo de envio para sua região.</p>
-        <a href="https://www2.correios.com.br/sistemas/precosPrazos/" target="_blank" rel="noopener" class="button button-secondary">
-          Consultar Frete (Correios)
-        </a>
-      </div>
-    </aside>
+        <p>Consulte o endereço de entrega direto aqui:</p>
+        
+        <div class="cep-lookup">
+          <label for="cepInput" style="display: block; margin-top: 10px; font-weight: bold; font-size: 0.9em;">Digite seu CEP:</label>
+          <input type="text" id="cepInput" placeholder="Apenas números" style="width: 100%; box-sizing: border-box; margin-bottom: 5px; padding: 8px;">
+          <button id="consultaBtn" style="width: 100%; padding: 8px; cursor: pointer; background-color: #eee; border: 1px solid #ccc; border-radius: 4px;">Consultar</button>
+          <div id="resultadoCep" style="margin-top: 10px; font-size: 0.9em; line-height: 1.4; color: #333;">
+            </div>
+        </div>
+        </div>
+      </aside>
 
     <main class="content">
       
@@ -117,7 +123,63 @@
 
     </main>
   </div>
-</body>
+
+  <script>
+    // Pega os elementos que acabamos de criar no HTML
+    const cepInput = document.getElementById('cepInput');
+    const consultaBtn = document.getElementById('consultaBtn');
+    const resultadoCep = document.getElementById('resultadoCep');
+  
+    // Adiciona um "ouvinte" que espera pelo clique no botão
+    consultaBtn.addEventListener('click', () => {
+      // 1. Pega o valor que o usuário digitou e limpa (tira traços, etc)
+      const cep = cepInput.value.replace(/\D/g, '');
+  
+      // 2. Verifica se o CEP tem 8 dígitos
+      if (cep.length !== 8) {
+        resultadoCep.innerHTML = 'Por favor, digite um CEP válido com 8 dígitos.';
+        resultadoCep.style.color = 'red'; // Adiciona cor ao erro
+        return;
+      }
+  
+      // 3. Mostra uma mensagem de "carregando"
+      resultadoCep.innerHTML = 'Buscando...';
+      resultadoCep.style.color = '#333'; // Reseta a cor
+  
+      // 4. Monta a URL da API ViaCEP
+      const url = `https://viacep.com.br/ws/${cep}/json/`;
+  
+      // 5. Faz a mágica! (A "requisição" para a API)
+      fetch(url)
+        .then(response => response.json()) // Converte a resposta para o formato JSON
+        .then(data => {
+          // 6. Verifica se a API retornou um erro (CEP não encontrado)
+          if (data.erro) {
+            resultadoCep.innerHTML = 'CEP não encontrado.';
+            resultadoCep.style.color = 'red';
+          } else {
+            // 7. Se deu certo, mostra o endereço na tela!
+            resultadoCep.innerHTML = `
+              <strong>${data.logradouro}</strong><br>
+              ${data.bairro}, ${data.localidade} - ${data.uf}
+            `;
+            resultadoCep.style.color = 'green'; // Cor de sucesso
+
+            // Lembrete: Isso mostra o ENDEREÇO, não o PREÇO do frete.
+            // Você pode adicionar aqui uma mensagem de frete fixo, por exemplo:
+            // resultadoCep.innerHTML += '<br><br><strong>Frete fixo: R$ 15,00</strong>';
+          }
+        })
+        .catch(error => {
+          // 8. Se deu erro na conexão (internet caiu, etc)
+          console.error('Erro ao consultar CEP:', error);
+          resultadoCep.innerHTML = 'Não foi possível consultar o CEP. Tente novamente.';
+          resultadoCep.style.color = 'red';
+        });
+    });
+  </script>
+  </body>
+</html>
 </html>
    
  
