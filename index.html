@@ -28,14 +28,23 @@
       
       <div class="frete">
         <h3>Entrega e Frete</h3>
-        <p>Consulte o endereço de entrega direto aqui:</p>
+        <p>Consulte as opções de entrega:</p>
         
         <div class="cep-lookup">
-          <label for="cepInput" style="display: block; margin-top: 10px; font-weight: bold; font-size: 0.9em;">Digite seu CEP:</label>
+          <label for="cepInput" style="display: block; margin-top: 10px; font-weight: bold; font-size: 0.9em;">Consultar frete (Brasil):</label>
           <input type="text" id="cepInput" placeholder="Apenas números" style="width: 100%; box-sizing: border-box; margin-bottom: 5px; padding: 8px;">
           <button id="consultaBtn" style="width: 100%; padding: 8px; cursor: pointer; background-color: #eee; border: 1px solid #ccc; border-radius: 4px;">Consultar</button>
           <div id="resultadoCep" style="margin-top: 10px; font-size: 0.9em; line-height: 1.4; color: #333;">
             </div>
+        </div>
+        <div class="entrega-sp" style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #ccc;">
+          <h4 style="margin: 0 0 5px 0; font-size: 1.1em;">Entrega em Mãos (SP)</h4>
+          <p style="font-size: 0.9em; line-height: 1.4; margin: 0 0 10px 0;">
+            Também entregamos em estações de trem/metrô em São Paulo.
+          </p>
+          <a href="https://wa.me/55119XXXXXXXX" target="_blank" rel="noopener" style="display: block; text-align: center; padding: 10px; background-color: #25D366; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 0.9em;">
+            Confirmar no WhatsApp
+          </a>
         </div>
         </div>
       </aside>
@@ -158,16 +167,15 @@
             resultadoCep.innerHTML = 'CEP não encontrado.';
             resultadoCep.style.color = 'red';
           } else {
-            // 7. Se deu certo, mostra o endereço na tela!
+            // 7. SUCESSO! Mostra a cidade e o FRETE FIXO
             resultadoCep.innerHTML = `
-              <strong>${data.logradouro}</strong><br>
-              ${data.bairro}, ${data.localidade} - ${data.uf}
+              <strong style="display: block; margin-bottom: 5px;">Entrega para:</strong>
+              ${data.localidade} - ${data.uf}<br>
+              <strong style="color: #0066cc; font-size: 1.1em; margin-top: 5px; display: block;">
+                Frete Fixo: R$ 13,00 (Todo o Brasil)
+              </strong>
             `;
-            resultadoCep.style.color = 'green'; // Cor de sucesso
-
-            // Lembrete: Isso mostra o ENDEREÇO, não o PREÇO do frete.
-            // Você pode adicionar aqui uma mensagem de frete fixo, por exemplo:
-            // resultadoCep.innerHTML += '<br><br><strong>Frete fixo: R$ 15,00</strong>';
+            resultadoCep.style.color = '#333'; // Cor padrão
           }
         })
         .catch(error => {
