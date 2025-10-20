@@ -1,1 +1,9 @@
-
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <rect rx="20" width="240" height="240" fill="#fff" stroke="#e6efe6"/>
+  <g transform="translate(30,30)">
+    <ellipse cx="60" cy="120" rx="48" ry="20" fill="#f3f6f2"/>
+    <rect x="24" y="20" width="72" height="120" rx="10" fill="#cbe7cf"/>
+    <circle cx="60" cy="60" r="18" fill="#1e6a3a"/>
+    <text x="60" y="180" font-size="20" fill="#1e6a3a" text-anchor="middle">Noz</text>
+  </g>
+</svg>
