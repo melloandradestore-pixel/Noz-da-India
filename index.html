@@ -8,6 +8,7 @@
   <meta name="description" content="Noz da Índia — produto natural. Informações, antes/depois, instruções e compra.">
   <meta property="og:title" content="Noz da Índia — Produto">
   <meta property="og:description" content="Conheça Noz da Índia — informações, uso e onde comprar.">
+  
   <meta property="og:image" content="imagens/capa.svg">
 </head>
 <body>
@@ -15,8 +16,8 @@
     <aside class="sidebar">
       
       <div class="brand">
-        <img src="imagens/mello andrade logo.jpeg" alt="Logo M & A Store" />
-        <h1>Noz da ÍndIA</h1>
+        <img src="imagens/logo-ma-store.jpeg" alt="Logo M & A Store" />
+        <h1>Noz da Índia</h1>
       </div>
       <nav>
         <a href="#produto" class="active">Produto</a>
@@ -38,6 +39,7 @@
           <div id="resultadoCep" style="margin-top: 10px; font-size: 0.9em; line-height: 1.4; color: #333;">
             </div>
         </div>
+        
         <div class="entrega-sp" style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #ccc;">
           <h4 style="margin: 0 0 5px 0; font-size: 1.1em;">Entrega em Mãos (SP)</h4>
           <p style="font-size: 0.9em; line-height: 1.4; margin: 0 0 10px 0;">
@@ -47,13 +49,14 @@
             Confirmar no WhatsApp
           </a>
         </div>
-        </div>
+      </div>
 
     </aside>
 
     <main class="content">
       
       <section id="produto" class="card hero">
+        
         <img class="cover" src="imagens/capa.svg" alt="Capa Noz da Índia">
         <div class="header">
           <h2>Seu caminho natural para o bem-estar e emagrecimento.</h2>
@@ -76,10 +79,12 @@
         <p>Veja a transformação de quem usou Noz da Índia corretamente. Lembre-se: resultados variam de pessoa para pessoa.</p>
         <div class="gallery">
           <figure>
+            
             <img src="imagens/antes-depois/before.svg" alt="Foto Antes do Uso">
             <figcaption>Antes</figcaption>
           </figure>
           <figure>
+            
             <img src="imagens/antes-depois/after.svg" alt="Foto Depois do Uso">
             <figcaption>Depois</figcaption>
           </figure>
@@ -136,40 +141,31 @@
   </div>
 
   <script>
-    // Pega os elementos que acabamos de criar no HTML
     const cepInput = document.getElementById('cepInput');
     const consultaBtn = document.getElementById('consultaBtn');
     const resultadoCep = document.getElementById('resultadoCep');
   
-    // Adiciona um "ouvinte" que espera pelo clique no botão
     consultaBtn.addEventListener('click', () => {
-      // 1. Pega o valor que o usuário digitou e limpa (tira traços, etc)
       const cep = cepInput.value.replace(/\D/g, '');
   
-      // 2. Verifica se o CEP tem 8 dígitos
       if (cep.length !== 8) {
         resultadoCep.innerHTML = 'Por favor, digite um CEP válido com 8 dígitos.';
-        resultadoCep.style.color = 'red'; // Adiciona cor ao erro
+        resultadoCep.style.color = 'red'; 
         return;
       }
   
-      // 3. Mostra uma mensagem de "carregando"
       resultadoCep.innerHTML = 'Buscando...';
-      resultadoCep.style.color = '#333'; // Reseta a cor
+      resultadoCep.style.color = '#333'; 
   
-      // 4. Monta a URL da API ViaCEP
       const url = `https://viacep.com.br/ws/${cep}/json/`;
   
-      // 5. Faz a mágica! (A "requisição" para a API)
       fetch(url)
-        .then(response => response.json()) // Converte a resposta para o formato JSON
+        .then(response => response.json()) 
         .then(data => {
-          // 6. Verifica se a API retornou um erro (CEP não encontrado)
           if (data.erro) {
             resultadoCep.innerHTML = 'CEP não encontrado.';
             resultadoCep.style.color = 'red';
           } else {
-            // 7. SUCESSO! Mostra a cidade e o FRETE FIXO
             resultadoCep.innerHTML = `
               <strong style="display: block; margin-bottom: 5px;">Entrega para:</strong>
               ${data.localidade} - ${data.uf}<br>
@@ -177,11 +173,10 @@
                 Frete Fixo: R$ 13,00 (Todo o Brasil)
               </strong>
             `;
-            resultadoCep.style.color = '#333'; // Cor padrão
+            resultadoCep.style.color = '#333';
           }
         })
         .catch(error => {
-          // 8. Se deu erro na conexão (internet caiu, etc)
           console.error('Erro ao consultar CEP:', error);
           resultadoCep.innerHTML = 'Não foi possível consultar o CEP. Tente novamente.';
           resultadoCep.style.color = 'red';
@@ -190,5 +185,3 @@
   </script>
   </body>
 </html>
-   
- 
