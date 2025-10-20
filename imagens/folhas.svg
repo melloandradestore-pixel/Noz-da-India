@@ -1,1 +1,15 @@
-
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#e6f4ea" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#f6fbf7" stop-opacity="0.3"/>
+    </linearGradient>
+    <path id="leaf" d="M 50 0 C 20 20 20 80 50 100 C 80 80 80 20 50 0 Z" fill="#7aa774" opacity="0.3"/>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <use href="#leaf" transform="translate(100 50) rotate(15) scale(0.6)"/>
+  <use href="#leaf" transform="translate(450 150) rotate(60) scale(0.8)"/>
+  <use href="#leaf" transform="translate(900 300) rotate(-30) scale(0.5)"/>
+  <use href="#leaf" transform="translate(200 500) rotate(120) scale(0.7)"/>
+  <use href="#leaf" transform="translate(700 650) rotate(-90) scale(0.9)"/>
+</svg>
