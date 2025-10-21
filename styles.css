@@ -117,8 +117,8 @@ nav a:hover, nav a.active {
       top: 20px;           /* Distância do topo */
       right: 20px;         /* Distância da direita */
 
-      width: 300px;        /* Largura da imagem (pode ajustar) */
-      height: 300px;       /* Altura da imagem (pode ajustar) */
+      width: 600px;        /* Largura da imagem (pode ajustar) */
+      height: 600px;       /* Altura da imagem (pode ajustar) */
       object-fit: cover;   /* Garante que a foto preencha o espaço sem distorcer */
       
       border-radius: 10px; /* Bordas arredondadas */
