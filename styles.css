@@ -18,7 +18,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   /* Fundo de folhas leves */
-  background-image: url("imagens/folhas.svg");
+  background-image: url("imagens/folhas.jpg");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
