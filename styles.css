@@ -111,6 +111,23 @@ nav a:hover, nav a.active {
   padding: 0;
 }
 
+/* --- Imagem da Semente Sobreposta --- */
+    .imagem-semente-sobreposta {
+      position: absolute;  /* Faz a imagem "flutuar" */
+      top: 20px;           /* Distância do topo */
+      right: 20px;         /* Distância da direita */
+
+      width: 150px;        /* Largura da imagem (pode ajustar) */
+      height: 150px;       /* Altura da imagem (pode ajustar) */
+      object-fit: cover;   /* Garante que a foto preencha o espaço sem distorcer */
+      
+      border-radius: 10px; /* Bordas arredondadas */
+      border: 3px solid white; /* Borda branca para destacar */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidade */
+      
+      z-index: 2; /* Garante que ela fique por cima da capa */
+    }
+
 .hero .cover {
   width: 100%;
   height: auto;
