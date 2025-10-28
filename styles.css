@@ -245,14 +245,12 @@ nav a:hover, nav a.active {
   color: var(--muted);
 }
 
-/* --- ALTERAÇÃO FEITA AQUI --- */
-/* Regras de .video-container e iframe REMOVIDAS */
+/* --- REGRAS DO VÍDEO REMOVIDAS --- */
 /* Adicionado um estilo simples para centralizar o novo botão */
 .video-link-container {
   text-align: center;
   margin: 25px 0 10px 0; /* Espaçamento em volta do botão */
 }
-/* --- FIM DA ALTERAÇÃO --- */
 
 
 /* Seção Contraindicações */
