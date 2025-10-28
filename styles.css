@@ -1,225 +1,360 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Noz da Índia — Produto</title>
-  <link rel="stylesheet" href="styles.css">
-  <meta name="description" content="Noz da Índia — produto natural. Informações, antes/depois, instruções e compra.">
-  <meta property="og:title" content="Noz da Índia — Produto">
-  <meta property="og:description" content="Conheça Noz da Índia — informações, uso e onde comprar.">
+/* Paleta de cores e estilo Natureza */
+:root{
+  --bg:#f3f6f2; /* Fundo Leve (Verde/Terra) */
+  --card:#ffffff;
+  --accent:#1e6a3a; /* Verde Natureza Principal (Botão CTA) */
+  --accent-2:#7aa774; /* Verde Claro Secundário */
+  --text:#12221a; /* Texto Escuro */
+  --muted:#6b7280; /* Texto Secundário */
+  --warning:#cc3300; /* Cor para Contraindicações */
+}
+
+/* Base */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
   
-  <meta property="og:image" content="imagens/capa.svg">
-</head>
-<body>
-  <div class="app">
-    <aside class="sidebar">
-      
-      <div class="brand">
-        <img src="imagens/logo-ma-store.jpeg" alt="Logo M & A Store" />
-        <h1>Noz da Índia</h1>
-      </div>
-      <nav>
-        <a href="#produto">Produto</a>
-        <a href="#antes-depois" class="active">Antes & Depois</a>
-        <a href="#instrucoes">Instruções de Uso</a>
-        <a href="#recomendacoes">Recomendações</a>
-        <a href="#contraindicacoes">Contraindicações</a>
-        <a href="#comprar">Comprar</a>
-      </nav>
-      
-      <div class="frete">
-        <h3>Entrega e Frete</h3>
-        <p>Consulte as opções de entrega:</p>
-        
-        <div class="cep-lookup">
-          <label for="cepInput" style="display: block; margin-top: 10px; font-weight: bold; font-size: 0.9em;">Consultar frete (Brasil):</label>
-          <input type="text" id="cepInput" placeholder="Apenas números" style="width: 100%; box-sizing: border-box; margin-bottom: 5px; padding: 8px;">
-          <button id="consultaBtn" style="width: 100%; padding: 8px; cursor: pointer; background-color: #eee; border: 1px solid #ccc; border-radius: 4px;">Consultar</button>
-          <div id="resultadoCep" style="margin-top: 10px; font-size: 0.9em; line-height: 1.4; color: #333;">
-          </div>
-        </div>
-        
-        <div class="entrega-sp" style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #ccc;">
-          <h4 style="margin: 0 0 5px 0; font-size: 1.1em;">Entrega em Mãos (SP)</h4>
-          <p style="font-size: 0.9em; line-height: 1.4; margin: 0 0 10px 0;">
-            Também entregamos em estações de trem/metrô em São Paulo.
-          </p>
-          
-          <a href="https://wa.me/5511921537772" target="_blank" rel="noopener" style="display: block; text-align: center; padding: 10px; background-color: #25D366; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 0.9em;">
-            Confirmar no WhatsApp
-          </a>
-        </div>
-      </div>
+  background-image: url("imagens/folhas.jpg");
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
 
-    </aside>
+h1, h2, h3 {
+  color: var(--text);
+  margin-top: 0;
+}
 
-    <main class="content">
-      
-      <section id="antes-depois" class="card">
-        <h2>Antes & Depois (Resultados Reais)</h2>
-        <p>Veja a transformação de quem usou Noz da Índia corretamente. Lembre-se: resultados variam de pessoa para pessoa.</p>
-        <div class="gallery">
-          <figure>
-            <img src="imagens/img1.jpeg" alt="Resultado Antes e Depois 1">
-          </figure>
-        
-          <figure>
-            <img src="imagens/img2.jpeg" alt="Resultado Antes e Depois 2">
-          </figure>
-        
-          <figure>
-            <img src="imagens/img3.jpeg" alt="Resultado Antes e Depois 3">
-          </figure>
-        
-          <figure>
-            <img src="imagens/img4.jpeg" alt="Resultado Antes e Depois 4">
-          </figure>
-        
-          <figure>
-            <img src="imagens/img5.jpeg" alt="Resultado Antes e Depois 5">
-          </figure>
-        </div>
-      </section>
+/* Layout Principal */
+.app {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
 
-      <section id="produto" class="card hero">
-        
-       <img class="cover" src="imagens/capa.svg" alt="Capa Noz da Índia">
+/* Menu Lateral (Sidebar) */
+.sidebar {
+  width: 280px;
+  background-color: var(--card);
+  padding: 24px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
 
-        <img class="imagem-semente-sobreposta" src="imagens/sementes.jpg" alt="Sementes de Noz da Índia">
-        <div class="header">
-          <h2>Seu caminho natural para o bem-estar e emagrecimento.</h2>
-        </div>
-        <div class="body">
-          <p>A Noz da Índia é uma semente natural, reconhecida por auxiliar em processos de emagrecimento e melhoria do trânsito intestinal. 
-            Descubra todos os benefícios e comece hoje sua jornada para uma vida mais saudável.</p>
-          
-          <div class="product-info">
-            <div class="price-details">
-              <div class="price">R$ 20,00 <span class="frete-info">+ frete</span></div>
-              <p class="product-description">
-                Embalagem com 8 sementes (tratamento para 36 dias).
-                <br>Estimativa de perda de 1kg por semana.
-                <span class="disclaimer">Lembre-se: os resultados dependem de cada organismo e do uso correto.</span>
-              </p>
-            </div>
-            <a href="https://example.com/buy" target="_blank" rel="noopener" class="button button-cta">
-              Comprar Agora
-            </a>
-          </div>
+.brand {
+  text-align: center;
+  margin-bottom: 30px;
+}
 
-        </div>
-      </section>
+.brand img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
 
-      <section id="instrucoes" class="card">
-        <h2>Instruções de Uso</h2>
-        <p>Aprenda a forma correta de manipular e consumir a semente para garantir a máxima eficácia e segurança.</p>
-        
-        <ul>
-          <li>Para a primeira semana de uso recomneda-se partir a semente em 8 pedaços e consumir apenas 1 pedaço ao dia pela manhã após o café da manhã ou após consumir 1 banana.</li>
-          <li>A partir de segunda semana poderá fracionar de 6 a 4 pedaços por semente e tomar apenas 1 pedaço por dia.</li>
-          <li>É extremamente importante observar como seu corpo está reagindo para administrar sua dose, pois algumas pessoas sentem mais e outra sentem menos efeitos colaterais.</li>
-          <li>Na dúvida tome sempre a menor dose e se precisar dê um intervalo de 1 a 2 dias para que se adapte melhor ao seu uso.</li>
-        </ul>
-        
-        <p style="margin-top: 20px;">O vídeo abaixo explica o processo de preparo de corte da semente:</p>
-        <div class="video-link-container">
-            <a href="https://www.youtube.com/shorts/dGaI7GOepuc" target="_blank" rel="noopener" class="button button-cta">
-              Assistir ao Vídeo de Instruções
-            </a>
-        </div>
-        </section>
+nav a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: var(--text);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  transition: background-color 0.2s;
+}
 
-      <section id="recomendacoes" class="card">
-        <h2>Recomendações de Uso</h2>
-        <ul>
-          <li>Beba no mínimo 2 litros de água por dia para potencializar o efeito e evitar desidratação.</li>
-          <li>Mantenha uma dieta equilibrada para melhores resultados de emagrecimento.</li>
-          <li>Horário ideal de consumo: pela manhã após tomar seu café da manhã, caso não coma nada é recomnedado comer pelo menos uma banana para depois tomar sua dose diária de noz da índia.</li>
-          <li>Não recomendado cortar mais de 1 semente por vez para garantir sua durabildade e eficácia.</li>
-          <li>Por ser um produto natural ppode sofrer de alterações de cor e tamanho não tendo nenhum prejuizo em sua qualidade.</li>
-          <li>Guarde o produto em local fresco e seco.</li>
-        </ul>
-      </section>
+nav a:hover, nav a.active {
+  background-color: var(--bg);
+  color: var(--accent);
+}
 
-      <section id="contraindicacoes" class="card">
-        <h2>Contraindicações e Restrições</h2>
-        <p class="warning">**Atenção:** A Noz da Índia **não** é recomendada para:</p>
-        <ul>
-          <li>Grávidas e lactantes.</li>
-          <li>Pessoas com menos de 18 anos ou mais de 65 anos.</li>
-          <li>Pessoas com problemas cardíacos, úleras ou doenças gastrointestinais graves.</li>
-          <li>Pessoas alérgicas ao produto.</li>
-          <li>Bariátricos.</li>
-          <li>Pessoas em tratamento com medicamentos controlados ou em tratamento oncológico.</li>
-        </ul>
-        <p>Em caso de dúvida, suspenda o uso e procure orientação profissional.</p>
-      </section>
+.frete {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
 
-      <section id="comprar" class="card final-cta">
-        <h2>Pronto para começar sua transformação?</h2>
-        <p>Clique no botão abaixo e garanta já o seu tratamento!</p>
-        <div class="product-info">
-          <div class="price-details">
-            <div class="price">R$ 20,00 <span class="frete-info">+ frete</span></div>
-            <p class="product-description">
-              Embalagem com 8 sementes (tratamento para 36 dias).
-              <br>Estimativa de perda de 1kg por semana.
-              <span class="disclaimer">Lembre-se: os resultados dependem de cada organismo e do uso correto.</span>
-            </p>
-          </div>
-          <a href="https://wa.me/5511921537772" target="_blank" rel="noopener" class="button button-cta button-large">
-            Comprar Agora e Mudar de Vida!
-          </a>
-        </div>
+.frete h3 {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
 
-      </section>
+/* Conteúdo Principal (Content) */
+.content {
+  flex-grow: 1;
+  padding: 40px;
+  max-width: 1000px;
+  min-width: 0; 
+}
 
-    </main>
-  </div>
+.card {
+  background-color: var(--card);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
 
-  <script>
-    const cepInput = document.getElementById('cepInput');
-    const consultaBtn = document.getElementById('consultaBtn');
-    const resultadoCep = document.getElementById('resultadoCep');
-  
-    consultaBtn.addEventListener('click', () => {
-      const cep = cepInput.value.replace(/\D/g, '');
-  
-      if (cep.length !== 8) {
-        resultadoCep.innerHTML = 'Por favor, digite um CEP válido com 8 dígitos.';
-        resultadoCep.style.color = 'red'; 
-        return;
-      }
-  
-      resultadoCep.innerHTML = 'Buscando...';
-      resultadoCep.style.color = '#333'; 
-  
-      const url = `https://viacep.com.br/ws/${cep}/json/`;
-  
-      fetch(url)
-        .then(response => response.json()) 
-        .then(data => {
-          if (data.erro) {
-            resultadoCep.innerHTML = 'CEP não encontrado.';
-            resultadoCep.style.color = 'red';
-          } else {
-            resultadoCep.innerHTML = `
-              <strong style="display: block; margin-bottom: 5px;">Entrega para:</strong>
-              ${data.localidade} - ${data.uf}<br>
-              <strong style="color: #0066cc; font-size: 1.1em; margin-top: 5px; display: block;">
-                Frete Fixo: R$ 13,00 (Todo o Brasil)
-              </strong>
-            `;
-            resultadoCep.style.color = '#333';
-          }
-        })
-        .catch(error => {
-          console.error('Erro ao consultar CEP:', error);
-          resultadoCep.innerHTML = 'Não foi possível consultar o CEP. Tente novamente.';
-          resultadoCep.style.color = 'red';
-        });
-    });
-  </script>
-  </body>
-</html>
+/* Seção Hero (Produto) */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.imagem-semente-sobreposta {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 200px;  
+  height: 200px; 
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.hero .cover {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.hero .header, .hero .body {
+  padding: 25px 30px;
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--bg);
+  gap: 20px;
+}
+
+.price {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.price .placeholder {
+  color: var(--accent);
+}
+
+.price-details {
+  flex: 1;
+}
+
+.price .frete-info {
+  font-size: 0.6em;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.product-description {
+  font-size: 0.9em;
+  color: var(--text);
+  margin-top: 8px;
+  line-height: 1.4;
+  max-width: 400px;
+}
+
+.product-description .disclaimer {
+  display: block;
+  font-size: 0.9em;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 5px;
+}
+
+/* Botões */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button-cta {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+}
+
+.button-secondary {
+  background-color: var(--accent-2);
+  color: var(--text);
+  border: none;
+  font-size: 0.9em;
+  padding: 8px 15px;
+  margin-top: 10px;
+}
+
+.button-large {
+  font-size: 1.2em;
+  padding: 15px 30px;
+}
+
+/* Seção Antes & Depois */
+.gallery {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+  flex-wrap: wrap; 
+}
+
+.gallery figure {
+  margin: 0;
+  text-align: center;
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery figcaption {
+  margin-top: 10px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* --- ALTERAÇÃO FEITA AQUI --- */
+/* Regras de .video-container e iframe REMOVIDAS */
+/* Adicionado um estilo simples para centralizar o novo botão */
+.video-link-container {
+  text-align: center;
+  margin: 25px 0 10px 0; /* Espaçamento em volta do botão */
+}
+/* --- FIM DA ALTERAÇÃO --- */
+
+
+/* Seção Contraindicações */
+#contraindicacoes ul, #instrucoes ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.warning {
+  color: var(--warning);
+  font-weight: bold;
+}
+
+/* ------------------------------------- */
+/* RESPONSIVIDADE (OTIMIZAÇÃO PARA CELULARES) */
+/* ------------------------------------- */
+
+@media (max-width: 900px) {
+  /* LAYOUT PRINCIPAL */
+  .app {
+    flex-direction: column; 
+  }
+  .sidebar {
+    width: 100%;
+    min-width: 100%; 
+    position: static; 
+    height: auto;
+    overflow-y: visible;
+  }
+  .content {
+    padding: 20px;
+    max-width: 100%; 
+  }
+    
+    /* SEÇÃO HERO (IMAGEM SOBREPOSTA E CTA) */
+    .hero .header, .hero .body {
+        padding: 20px 25px; 
+    }
+    .imagem-semente-sobreposta {
+        width: 120px; 
+        height: 120px;
+        top: 15px;
+        right: 15px;
+    }
+    .product-info {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .price {
+        width: 100%; 
+        text-align: left;
+    }
+    
+    .product-description {
+      max-width: 100%;
+    }
+
+    .button-cta {
+        width: 100%; 
+        box-sizing: border-box; 
+    }
+
+  /* SEÇÃO GALERIA (ANTES & DEPOIS) */
+  .gallery {
+    flex-direction: column; 
+    align-items: center;
+    gap: 15px;
+  }
+  .gallery figure {
+    width: 95%; 
+    max-width: 400px; 
+  }
+  .gallery img {
+    max-width: 100%; 
+  }
+}
+
+
+@media (max-width: 480px) {
+    /* AJUSTES PARA CELULARES MUITO PEQUENOS */
+    .sidebar {
+        padding: 15px;
+    }
+    
+    .content {
+        padding: 15px;
+    }
+    
+    .brand h1 {
+        font-size: 1.5em; 
+    }
+    
+    .imagem-semente-sobreposta {
+        width: 100px; 
+        height: 100px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .frete {
+        padding-top: 10px;
+        margin-top: 20px;
+    }
+}
