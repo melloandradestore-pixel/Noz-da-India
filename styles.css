@@ -18,11 +18,9 @@ body {
   color: var(--text);
   line-height: 1.6;
   
-  /* --- CORREÇÃO 1: FUNDO --- */
-  /* Removemos o 'cover' e 'no-repeat' e adicionamos 'repeat' */
   background-image: url("imagens/folhas.jpg");
-  background-repeat: repeat; /* Faz a imagem repetir */
-  background-attachment: fixed; /* Deixa o fundo fixo */
+  background-repeat: repeat;
+  background-attachment: fixed;
 }
 
 h1, h2, h3 {
@@ -94,9 +92,6 @@ nav a:hover, nav a.active {
   flex-grow: 1;
   padding: 40px;
   max-width: 1000px;
-  
-  /* Adicionamos isso para o flex-grow funcionar corretamente */
-  /* sem estourar o layout com o max-width */
   min-width: 0; 
 }
 
@@ -115,21 +110,16 @@ nav a:hover, nav a.active {
   padding: 0;
 }
 
-/* --- CORREÇÃO 2: IMAGEM SOBREPOSTA --- */
 .imagem-semente-sobreposta {
   position: absolute;
   top: 20px;
   right: 20px;
-
-  /* Reduzimos o tamanho para ficar mais proporcional no PC */
   width: 200px;  
   height: 200px; 
   object-fit: cover;
-  
   border-radius: 10px;
   border: 3px solid white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  
   z-index: 2;
 }
 
@@ -153,6 +143,7 @@ nav a:hover, nav a.active {
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid var(--bg);
+  gap: 20px;
 }
 
 .price {
@@ -162,6 +153,32 @@ nav a:hover, nav a.active {
 
 .price .placeholder {
   color: var(--accent);
+}
+
+.price-details {
+  flex: 1;
+}
+
+.price .frete-info {
+  font-size: 0.6em;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.product-description {
+  font-size: 0.9em;
+  color: var(--text);
+  margin-top: 8px;
+  line-height: 1.4;
+  max-width: 400px;
+}
+
+.product-description .disclaimer {
+  display: block;
+  font-size: 0.9em;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 5px;
 }
 
 /* Botões */
@@ -206,9 +223,6 @@ nav a:hover, nav a.active {
   gap: 20px;
   margin-top: 20px;
   justify-content: center;
-  
-  /* --- CORREÇÃO 3: GALERIA "QUEBRADA" --- */
-  /* Esta linha faz as fotos quebrarem a linha quando não couberem */
   flex-wrap: wrap; 
 }
 
@@ -219,7 +233,7 @@ nav a:hover, nav a.active {
 
 .gallery img {
   width: 100%;
-  max-width: 300px; /* As imagens podem ter no MÁXIMO 300px */
+  max-width: 300px;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -235,7 +249,7 @@ nav a:hover, nav a.active {
 .video-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* Proporção 16:9 */
+  padding-bottom: 56.25%; /* Proporção 16:9 (Padrão) */
   height: 0;
   margin: 20px 0;
   border-radius: 8px;
@@ -252,7 +266,7 @@ nav a:hover, nav a.active {
 }
 
 /* Seção Contraindicações */
-#contraindicacoes ul, #instrucoes ul { /* Aplicado o estilo na lista de instrucoes também */
+#contraindicacoes ul, #instrucoes ul {
   list-style: disc;
   padding-left: 20px;
 }
@@ -269,32 +283,32 @@ nav a:hover, nav a.active {
 @media (max-width: 900px) {
   /* LAYOUT PRINCIPAL */
   .app {
-    flex-direction: column; /* Coloca a barra lateral em cima do conteúdo */
+    flex-direction: column; 
   }
   .sidebar {
     width: 100%;
-    min-width: 100%; /* Garante largura total */
-    position: static; /* Não fica "colada" no topo ao rolar */
+    min-width: 100%; 
+    position: static; 
     height: auto;
     overflow-y: visible;
   }
   .content {
     padding: 20px;
-    max-width: 100%; /* Garante que ocupe a largura total */
+    max-width: 100%; 
   }
     
     /* SEÇÃO HERO (IMAGEM SOBREPOSTA E CTA) */
     .hero .header, .hero .body {
-        padding: 20px 25px; /* Ajusta o padding interno do Hero */
+        padding: 20px 25px; 
     }
     .imagem-semente-sobreposta {
-        width: 120px; /* Reduz o tamanho da imagem da semente */
+        width: 120px; 
         height: 120px;
         top: 15px;
         right: 15px;
     }
     .product-info {
-        flex-direction: column; /* Coloca preço e botão em coluna */
+        flex-direction: column; 
         align-items: flex-start;
         gap: 15px;
     }
@@ -302,23 +316,28 @@ nav a:hover, nav a.active {
         width: 100%; 
         text-align: left;
     }
+    
+    .product-description {
+      max-width: 100%;
+    }
+
     .button-cta {
-        width: 100%; /* Botão CTA com largura total no celular */
+        width: 100%; 
         box-sizing: border-box; 
     }
 
   /* SEÇÃO GALERIA (ANTES & DEPOIS) */
   .gallery {
-    flex-direction: column; /* Coloca as imagens em coluna */
+    flex-direction: column; 
     align-items: center;
     gap: 15px;
   }
   .gallery figure {
-    width: 95%; /* Ocupa a maior parte da largura da tela */
-    max-width: 400px; /* Limita o tamanho para não ficar enorme em tablets */
+    width: 95%; 
+    max-width: 400px; 
   }
   .gallery img {
-    max-width: 100%; /* Garante que a imagem se ajuste ao contêiner figure */
+    max-width: 100%; 
   }
 }
 
@@ -333,12 +352,10 @@ nav a:hover, nav a.active {
         padding: 15px;
     }
     
-    /* Garante que o logo/texto não fique muito grande */
     .brand h1 {
         font-size: 1.5em; 
     }
     
-    /* Otimiza a visualização da semente sobreposta em telas ainda menores */
     .imagem-semente-sobreposta {
         width: 100px; 
         height: 100px;
@@ -346,9 +363,19 @@ nav a:hover, nav a.active {
         right: 10px;
     }
 
-    /* Reduz o padding do frete para economizar espaço */
     .frete {
         padding-top: 10px;
         margin-top: 20px;
     }
+}
+
+/* *** MUDANÇA DO VÍDEO FEITA AQUI ***
+  A regra antiga foi trocada por esta, que limita o tamanho
+  do vídeo vertical e o centraliza.
+*/
+.video-container.short-video {
+  padding-bottom: 177.77%; /* Proporção 9:16 (vertical) */
+  max-width: 360px; /* Largura máxima (tamanho de celular) */
+  margin-left: auto; /* Centraliza */
+  margin-right: auto; /* Centraliza */
 }
