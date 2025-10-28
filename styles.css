@@ -143,7 +143,7 @@ nav a:hover, nav a.active {
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid var(--bg);
-  gap: 20px; /* Adiciona um espaço entre o texto e o botão */
+  gap: 20px;
 }
 
 .price {
@@ -155,14 +155,12 @@ nav a:hover, nav a.active {
   color: var(--accent);
 }
 
-/* *** ESTILOS NOVOS ADICIONADOS AQUI ***
-*/
 .price-details {
-  flex: 1; /* Permite que o texto cresça e empurre o botão */
+  flex: 1;
 }
 
 .price .frete-info {
-  font-size: 0.6em; /* 1.5em * 0.6 = 0.9em */
+  font-size: 0.6em;
   font-weight: 500;
   color: var(--muted);
 }
@@ -172,18 +170,16 @@ nav a:hover, nav a.active {
   color: var(--text);
   margin-top: 8px;
   line-height: 1.4;
-  max-width: 400px; /* Evita que o texto fique muito largo no PC */
+  max-width: 400px;
 }
 
 .product-description .disclaimer {
   display: block;
-  font-size: 0.9em; /* 0.9em * 0.9em = ~0.81em */
+  font-size: 0.9em;
   color: var(--muted);
   font-style: italic;
   margin-top: 5px;
 }
-/* *** FIM DOS ESTILOS NOVOS *** */
-
 
 /* Botões */
 .button {
@@ -249,11 +245,13 @@ nav a:hover, nav a.active {
   color: var(--muted);
 }
 
-/* Seção Instruções de Uso (Vídeo) */
+/* --- CORREÇÃO DO VÍDEO FEITA AQUI --- */
+
+/* Esta é a regra padrão para vídeos 16:9 (horizontais) */
 .video-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* Proporção 16:9 (Padrão) */
+  padding-bottom: 56.25%; /* Proporção 16:9 */
   height: 0;
   margin: 20px 0;
   border-radius: 8px;
@@ -268,6 +266,25 @@ nav a:hover, nav a.active {
   height: 100%;
   border: none;
 }
+
+/* Esta é a NOVA regra para o seu vídeo 9:16 (vertical) */
+.video-container.short-video {
+  /* Anula as regras de proporção acima */
+  padding-bottom: 0;
+  height: auto;
+  
+  /* Define um tamanho máximo e centraliza */
+  max-width: 360px; /* Largura de um celular */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.video-container.short-video iframe {
+  position: static; /* Deixa de ser "absoluto" */
+  height: 640px;  /* Altura 9:16 (baseado na largura de 360px) */
+}
+/* --- FIM DA CORREÇÃO DO VÍDEO --- */
+
 
 /* Seção Contraindicações */
 #contraindicacoes ul, #instrucoes ul {
@@ -321,11 +338,9 @@ nav a:hover, nav a.active {
         text-align: left;
     }
     
-    /* *** ESTILO NOVO PARA CELULAR *** */
     .product-description {
-      max-width: 100%; /* Garante que o texto ocupe a largura */
+      max-width: 100%;
     }
-    /* *** FIM DO ESTILO NOVO *** */
 
     .button-cta {
         width: 100%; 
@@ -344,6 +359,19 @@ nav a:hover, nav a.active {
   }
   .gallery img {
     max-width: 100%; 
+  }
+
+  /* Ajuste do vídeo no celular (para garantir que ele não estoure) */
+  .video-container.short-video {
+    width: 100%;
+    max-width: 360px; /* Garante que não passe de 360px */
+  }
+  .video-container.short-video iframe {
+    /* (Largura de 100%) * (Proporção 16/9) */
+    /* 100 * 1.7777 = 177.77% */
+    /* Isso faz a altura ser proporcional à largura no celular */
+    height: calc(100vw * 1.7777);
+    max-height: 640px; /* Limita a altura máxima */
   }
 }
 
@@ -373,8 +401,4 @@ nav a:hover, nav a.active {
         padding-top: 10px;
         margin-top: 20px;
     }
-}
-
-.video-container.short-video {
-  padding-bottom: 177.77%; /* Proporção 9:16 (16 / 9 * 100) */
 }
