@@ -6,7 +6,7 @@
   <title>Noz da Índia — Produto</title>
   <link rel="stylesheet" href="styles.css">
   <meta name="description" content="Noz da Índia — produto natural. Informações, antes/depois, instruções e compra.">
-  <meta property="og:title" content="Noz da ÍndIA — Produto">
+  <meta property="og:title" content="Noz da Índia — Produto">
   <meta property="og:description" content="Conheça Noz da Índia — informações, uso e onde comprar.">
   
   <meta property="og:image" content="imagens/capa.svg">
@@ -95,7 +95,7 @@
           <p>Se você está cansado de gastar muito com produtos que quase não trazem mudanças ou tem efeito rebote, chegou a hora de conhecer a solução natural que pode mudar sua vida, seus hábitos alimentares e melhorar sua autoestima!.</p>
           <p>A Noz da Índia é uma semente natural, reconhecida por auxiliar em processos de emagrecimento e melhoria do trânsito intestinal. 
             Descubra todos os benefícios e comece hoje sua jornada para uma vida mais saudável.</p>
-          <p>Promove a perda de peso naturally e sem tirar nada de sua dieta, você pode comer tudo! Isso mesmo, pois a Noza de Índia tira a anisedade, a vontade de comer doce e você reduz gradativaamnte e naturally seu apetite, a vontade de comer doces e besteiras e isso só te traz benefícioos, pois melhora sua qualidade de vioa!.</p>
+          <p>Promove a perda de peso naturalmente e sem tirar nada de sua dieta, você pode comer tudo! Isso mesmo, pois a Noza de Índia tira a anisedade, a vontade de comer doce e você reduz gradativaamnte e naturalmente seu apetite, a vontade de comer doces e besteiras e isso só te traz benefícioos, pois melhora sua qualidade de vioa!.</p>
         </div>
       </section>
 
@@ -166,4 +166,47 @@
   </div>
 
   <script>
-    const cep
+    const cepInput = document.getElementById('cepInput');
+    const consultaBtn = document.getElementById('consultaBtn');
+    const resultadoCep = document.getElementById('resultadoCep');
+  
+    consultaBtn.addEventListener('click', () => {
+      const cep = cepInput.value.replace(/\D/g, '');
+  
+      if (cep.length !== 8) {
+        resultadoCep.innerHTML = 'Por favor, digite um CEP válido com 8 dígitos.';
+        resultadoCep.style.color = 'red'; 
+        return;
+      }
+  
+      resultadoCep.innerHTML = 'Buscando...';
+      resultadoCep.style.color = '#333'; 
+  
+      const url = `https://viacep.com.br/ws/${cep}/json/`;
+  
+      fetch(url)
+        .then(response => response.json()) 
+        .then(data => {
+          if (data.erro) {
+            resultadoCep.innerHTML = 'CEP não encontrado.';
+            resultadoCep.style.color = 'red';
+          } else {
+            resultadoCep.innerHTML = `
+              <strong style="display: block; margin-bottom: 5px;">Entrega para:</strong>
+              ${data.localidade} - ${data.uf}<br>
+              <strong style="color: #0066cc; font-size: 1.1em; margin-top: 5px; display: block;">
+                Frete Fixo: R$ 13,00 (Todo o Brasil)
+              </strong>
+            `;
+            resultadoCep.style.color = '#333';
+          }
+        })
+        .catch(error => {
+          console.error('Erro ao consultar CEP:', error);
+          resultadoCep.innerHTML = 'Não foi possível consultar o CEP. Tente novamente.';
+          resultadoCep.style.color = 'red';
+        });
+    });
+  </script>
+  </body>
+</html>
