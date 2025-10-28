@@ -245,8 +245,7 @@ nav a:hover, nav a.active {
   color: var(--muted);
 }
 
-/* --- REGRAS DO VÍDEO REMOVIDAS --- */
-/* Adicionado um estilo simples para centralizar o novo botão */
+/* Estilo para o botão do link do vídeo */
 .video-link-container {
   text-align: center;
   margin: 25px 0 10px 0; /* Espaçamento em volta do botão */
@@ -267,16 +266,17 @@ nav a:hover, nav a.active {
 /* ------------------------------------- */
 /* RESPONSIVIDADE (OTIMIZAÇÃO PARA CELULARES) */
 /* ------------------------------------- */
+/* ESTE BLOCO ABAIXO É O QUE CORRIGE O CELULAR */
 
 @media (max-width: 900px) {
   /* LAYOUT PRINCIPAL */
   .app {
-    flex-direction: column; 
+    flex-direction: column; /* Empilha a barra lateral e o conteúdo */
   }
   .sidebar {
     width: 100%;
     min-width: 100%; 
-    position: static; 
+    position: static; /* Deixa de ser fixa */
     height: auto;
     overflow-y: visible;
   }
