@@ -143,7 +143,7 @@ nav a:hover, nav a.active {
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid var(--bg);
-  gap: 20px;
+  gap: 20px; /* Adiciona um espaço entre o texto e o botão */
 }
 
 .price {
@@ -155,12 +155,14 @@ nav a:hover, nav a.active {
   color: var(--accent);
 }
 
+/* *** ESTILOS NOVOS ADICIONADOS AQUI ***
+*/
 .price-details {
-  flex: 1;
+  flex: 1; /* Permite que o texto cresça e empurre o botão */
 }
 
 .price .frete-info {
-  font-size: 0.6em;
+  font-size: 0.6em; /* 1.5em * 0.6 = 0.9em */
   font-weight: 500;
   color: var(--muted);
 }
@@ -170,16 +172,18 @@ nav a:hover, nav a.active {
   color: var(--text);
   margin-top: 8px;
   line-height: 1.4;
-  max-width: 400px;
+  max-width: 400px; /* Evita que o texto fique muito largo no PC */
 }
 
 .product-description .disclaimer {
   display: block;
-  font-size: 0.9em;
+  font-size: 0.9em; /* 0.9em * 0.9em = ~0.81em */
   color: var(--muted);
   font-style: italic;
   margin-top: 5px;
 }
+/* *** FIM DOS ESTILOS NOVOS *** */
+
 
 /* Botões */
 .button {
@@ -317,9 +321,11 @@ nav a:hover, nav a.active {
         text-align: left;
     }
     
+    /* *** ESTILO NOVO PARA CELULAR *** */
     .product-description {
-      max-width: 100%;
+      max-width: 100%; /* Garante que o texto ocupe a largura */
     }
+    /* *** FIM DO ESTILO NOVO *** */
 
     .button-cta {
         width: 100%; 
@@ -369,13 +375,6 @@ nav a:hover, nav a.active {
     }
 }
 
-/* *** MUDANÇA DO VÍDEO FEITA AQUI ***
-  A regra antiga foi trocada por esta, que limita o tamanho
-  do vídeo vertical e o centraliza.
-*/
 .video-container.short-video {
-  padding-bottom: 177.77%; /* Proporção 9:16 (vertical) */
-  max-width: 360px; /* Largura máxima (tamanho de celular) */
-  margin-left: auto; /* Centraliza */
-  margin-right: auto; /* Centraliza */
+  padding-bottom: 177.77%; /* Proporção 9:16 (16 / 9 * 100) */
 }
