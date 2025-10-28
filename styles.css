@@ -245,45 +245,24 @@ nav a:hover, nav a.active {
   color: var(--muted);
 }
 
-/* --- CORREÇÃO DO VÍDEO FEITA AQUI --- */
-
-/* Esta é a regra padrão para vídeos 16:9 (horizontais) */
+/* --- CORREÇÃO DE VÍDEO (Método Simples) --- */
+/* Esta regra centraliza o vídeo */
 .video-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* Proporção 16:9 */
-  height: 0;
+  text-align: center;
   margin: 20px 0;
-  border-radius: 8px;
+}
+
+/* Esta regra estiliza o próprio vídeo (iframe) */
+.video-container iframe {
+  width: 100%; /* Ocupa 100% da largura do card */
+  max-width: 360px; /* Mas no MÁXIMO 360px (largura de celular) */
+  height: 640px; /* Altura 9:16 (baseado em 360px) */
+  
+  border: none;
+  border-radius: 8px; /* Borda no próprio iframe */
   overflow: hidden;
 }
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* Esta é a NOVA regra para o seu vídeo 9:16 (vertical) */
-.video-container.short-video {
-  /* Anula as regras de proporção acima */
-  padding-bottom: 0;
-  height: auto;
-  
-  /* Define um tamanho máximo e centraliza */
-  max-width: 360px; /* Largura de um celular */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.video-container.short-video iframe {
-  position: static; /* Deixa de ser "absoluto" */
-  height: 640px;  /* Altura 9:16 (baseado na largura de 360px) */
-}
-/* --- FIM DA CORREÇÃO DO VÍDEO --- */
+/* --- FIM DA CORREÇÃO DE VÍDEO --- */
 
 
 /* Seção Contraindicações */
@@ -343,62 +322,4 @@ nav a:hover, nav a.active {
     }
 
     .button-cta {
-        width: 100%; 
-        box-sizing: border-box; 
-    }
-
-  /* SEÇÃO GALERIA (ANTES & DEPOIS) */
-  .gallery {
-    flex-direction: column; 
-    align-items: center;
-    gap: 15px;
-  }
-  .gallery figure {
-    width: 95%; 
-    max-width: 400px; 
-  }
-  .gallery img {
-    max-width: 100%; 
-  }
-
-  /* Ajuste do vídeo no celular (para garantir que ele não estoure) */
-  .video-container.short-video {
-    width: 100%;
-    max-width: 360px; /* Garante que não passe de 360px */
-  }
-  .video-container.short-video iframe {
-    /* (Largura de 100%) * (Proporção 16/9) */
-    /* 100 * 1.7777 = 177.77% */
-    /* Isso faz a altura ser proporcional à largura no celular */
-    height: calc(100vw * 1.7777);
-    max-height: 640px; /* Limita a altura máxima */
-  }
-}
-
-
-@media (max-width: 480px) {
-    /* AJUSTES PARA CELULARES MUITO PEQUENOS */
-    .sidebar {
-        padding: 15px;
-    }
-    
-    .content {
-        padding: 15px;
-    }
-    
-    .brand h1 {
-        font-size: 1.5em; 
-    }
-    
-    .imagem-semente-sobreposta {
-        width: 100px; 
-        height: 100px;
-        top: 10px;
-        right: 10px;
-    }
-
-    .frete {
-        padding-top: 10px;
-        margin-top: 20px;
-    }
-}
+        width:
