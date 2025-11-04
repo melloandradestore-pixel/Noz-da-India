@@ -76,34 +76,30 @@
                         <section id="antes-depois" class="card">
         <h2>Antes & Depois (Resultados Reais)</h2>
         <p>Veja a transformação de quem usou Noz da Índia corretamente. Lembre-se: resultados variam de pessoa para pessoa.</p>
-        
         <div class="gallery">
-                    <button class="slider-button prev" onclick="changeSlide(-1)">&#10094;</button>
-
-                    <figure class="slide">
+          <figure>
             <img src="imagens/img1.png" alt="Resultado Antes e Depois 1">
           </figure>
-        
-          <figure class="slide">
+        
+          <figure>
             <img src="imagens/img2.png" alt="Resultado Antes e Depois 2">
           </figure>
-        
-          <figure class="slide">
+        
+          <figure>
             <img src="imagens/img3.png" alt="Resultado Antes e Depois 3">
           </figure>
-        
-          <figure class="slide">
-  _         <img src="imagens/img4.png" alt="Resultado Antes e Depois 4">
+        
+          <figure>
+        _   <img src="imagens/img4.png" alt="Resultado Antes e Depois 4">
           </figure>
-        
-          <figure class="slide">
+        
+          <figure>
             <img src="imagens/img5.png" alt="Resultado Antes e Depois 5">
           </figure>
-
-          <figure class="slide">
+          
+          <figure>
             <img src="imagens/img6.png" alt="Resultado Antes e Depois 6">
           </figure>
-                              <button class="slider-button next" onclick="changeSlide(1)">&#10095;</button>
         </div>
       </section>
                         <section id="instrucoes" class="card">
@@ -172,8 +168,8 @@
     </main>
   </div>
 
-  <script>
-    //     const cepInput = document.getElementById('cepInput');
+    <script>
+    const cepInput = document.getElementById('cepInput');
     const consultaBtn = document.getElementById('consultaBtn');
     const resultadoCep = document.getElementById('resultadoCep');
   
@@ -214,42 +210,6 @@
           resultadoCep.style.color = 'red';
         });
     });
-
-    /* =========================================
-      CÓDIGO DO SLIDER (O MESMO DE ANTES)
-    =========================================
-    */
-    let currentSlideIndex = 1;
-    showSlide(currentSlideIndex); // Exibe o primeiro slide assim que a página carrega
-
-    // Função chamada pelos botões (setas)
-    function changeSlide(n) {
-      showSlide(currentSlideIndex += n);
-    }
-
-    // Função principal que mostra/esconde os slides
-    function showSlide(n) {
-      let i;
-      // Pega todos os elementos com a classe "slide" DENTRO da seção #antes-depois
-      let slides = document.querySelectorAll("#antes-depois .gallery figure.slide");
-      
-      if (n > slides.length) {
-        currentSlideIndex = 1; // Se passar do último, volta ao primeiro
-      }
-      if (n < 1) {
-        currentSlideIndex = slides.length; // Se voltar antes do primeiro, vai para o último
-      }
-      
-      // Esconde todos os slides
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    </a>   }
-      
-      // Mostra apenas o slide atual
-      if (slides.length > 0) {
-        slides[currentSlideIndex - 1].style.display = "block";
-      }
-    }
   </script>
   </body>
 </html>
