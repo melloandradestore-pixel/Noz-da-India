@@ -217,13 +217,13 @@ nav a:hover, nav a.active {
   padding: 15px 30px;
 }
 
-/* Seção Antes & Depois */
+/* Seção Antes & Depois (Layout Correto de Desktop) */
 .gallery {
   display: flex;
   gap: 20px;
   margin-top: 20px;
   justify-content: center;
-  flex-wrap: wrap; 
+  flex-wrap: wrap; /* Esta é a linha mais importante: faz as fotos quebrarem a linha */
 }
 
 .gallery figure {
@@ -233,7 +233,7 @@ nav a:hover, nav a.active {
 
 .gallery img {
   width: 100%;
-  max-width: 300px;
+  max-width: 300px; /* Limita o tamanho da foto no desktop */
   height: auto;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -266,7 +266,6 @@ nav a:hover, nav a.active {
 /* ------------------------------------- */
 /* RESPONSIVIDADE (OTIMIZAÇÃO PARA CELULARES) */
 /* ------------------------------------- */
-/* ESTE BLOCO ABAIXO É O QUE CORRIGE O CELULAR */
 
 @media (max-width: 900px) {
   /* LAYOUT PRINCIPAL */
@@ -314,9 +313,9 @@ nav a:hover, nav a.active {
         box-sizing: border-box; 
     }
 
-  /* SEÇÃO GALERIA (ANTES & DEPOIS) */
+  /* SEÇÃO GALERIA (ANTES & DEPOIS) - Versão Celular */
   .gallery {
-    flex-direction: column; 
+    flex-direction: column; /* Empilha as fotos no celular */
     align-items: center;
     gap: 15px;
   }
@@ -325,7 +324,7 @@ nav a:hover, nav a.active {
     max-width: 400px; 
   }
   .gallery img {
-    max-width: 100%; 
+    max-width: 100%; /* Faz a foto ocupar 100% no celular */
   }
 }
 
