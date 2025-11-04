@@ -339,7 +339,7 @@ nav a:hover, nav a.active {
         right: 15px;
     }
     .product-info {
-        flex-direction: column; 
+        flex-direction: column;s
         align-items: flex-start;
         gap: 15px;
     }
@@ -377,7 +377,7 @@ nav a:hover, nav a.active {
     }
     
     .brand h1 {
-        font-size: 1.5em; 
+        font-size: 1.5em;s
     }
     
     .imagem-semente-sobreposta {
