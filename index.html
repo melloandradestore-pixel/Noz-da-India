@@ -93,7 +93,7 @@
           </figure>
         
           <figure class="slide">
-            <img src="imagens/img4.png" alt="Resultado Antes e Depois 4">
+  _         <img src="imagens/img4.png" alt="Resultado Antes e Depois 4">
           </figure>
         
           <figure class="slide">
@@ -123,7 +123,7 @@
               Assistir ao Vídeo de Instruções
             </a>
         </div>
-        </section>
+      </section>
 
       <section id="recomendacoes" class="card">
         <h2>Recomendações de Uso</h2>
@@ -131,7 +131,6 @@
           <li>Beba no mínimo 2 litros de água por dia para potencializar o efeito e evitar desidratação.</li>
           <li>Mantenha uma dieta equilibrada para melhores resultados de emagrecimento.</li>
           <li>Horário ideal de consumo: pela manhã após tomar seu café da manhã, caso não coma nada é recomnedado comer pelo menos uma banana para depois tomar sua dose diária de noz da índia.</li>
-A
           <li>Não recomendado cortar mais de 1 semente por vez para garantir sua durabildade e eficácia.</li>
           <li>Por ser um produto natural ppode sofrer de alterações de cor e tamanho não tendo nenhum prejuizo em sua qualidade.</li>
           <li>Guarde o produto em local fresco e seco.</li>
@@ -150,7 +149,7 @@ A
           <li>Pessoas em tratamento com medicamentos controlados ou em tratamento oncológico.</li>
         </ul>
         <p>Em caso de dúvida, suspenda o uso e procure orientação profissional.</p>
-section>
+      </section>
 
       <section id="comprar" class="card final-cta">
         <h2>Pronto para começar sua transformação?</h2>
@@ -174,10 +173,10 @@ section>
   </div>
 
   <script>
-    const cepInput = document.getElementById('cepInput');
+    //     const cepInput = document.getElementById('cepInput');
     const consultaBtn = document.getElementById('consultaBtn');
     const resultadoCep = document.getElementById('resultadoCep');
- s
+  
     consultaBtn.addEventListener('click', () => {
       const cep = cepInput.value.replace(/\D/g, '');
   
@@ -196,7 +195,6 @@ section>
         .then(response => response.json()) 
         .then(data => {
           if (data.erro) {
-g
             resultadoCep.innerHTML = 'CEP não encontrado.';
             resultadoCep.style.color = 'red';
           } else {
@@ -212,14 +210,13 @@ g
         })
         .catch(error => {
           console.error('Erro ao consultar CEP:', error);
-section
           resultadoCep.innerHTML = 'Não foi possível consultar o CEP. Tente novamente.';
           resultadoCep.style.color = 'red';
         });
     });
 
     /* =========================================
-      CÓDIGO DO SLIDER (ADICIONADO AQUI)
+      CÓDIGO DO SLIDER (O MESMO DE ANTES)
     =========================================
     */
     let currentSlideIndex = 1;
@@ -246,12 +243,12 @@ section
       // Esconde todos os slides
       for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
-      }
+    </a>   }
       
       // Mostra apenas o slide atual
       if (slides.length > 0) {
         slides[currentSlideIndex - 1].style.display = "block";
-}
+      }
     }
   </script>
   </body>
