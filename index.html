@@ -83,11 +83,7 @@
         
           <figure>
             <img src="imagens/img2.png" alt="Resultado Antes e Depois 2">
-          </figure>
-        
-          <figure>
-            <img src="imagens/img3.png" alt="Resultado Antes e Depois 3">
-          </figure>
+dot         </figure>
         
           <figure>
             <img src="imagens/img4.png" alt="Resultado Antes e Depois 4">
@@ -95,7 +91,7 @@
         
           <figure>
             <img src="imagens/img5.png" alt="Resultado Antes e Depois 5">
-          </figure>
+SA         </figure>
           
           <figure>
             <img src="imagens/img6.png" alt="Resultado Antes e Depois 6">
@@ -110,7 +106,7 @@
           <li>Para a primeira semana de uso recomneda-se partir a semente em 8 pedaços e consumir apenas 1 pedaço ao dia pela manhã após o café da manhã ou após consumir 1 banana.</li>
           <li>A partir de segunda semana poderá fracionar de 6 a 4 pedaços por semente e tomar apenas 1 pedaço por dia.</li>
           <li>É extremamente importante observar como seu corpo está reagindo para administrar sua dose, pois algumas pessoas sentem mais e outra sentem menos efeitos colaterais.</li>
-          <li>Na dúvida tome sempre a menor dose e se precisar dê um intervalo de 1 a 2 dias para que se adapte melhor ao seu uso.</li>
+dot           <li>Na dúvida tome sempre a menor dose e se precisar dê um intervalo de 1 a 2 dias para que se adapte melhor ao seu uso.</li>
         </ul>
         
         <p style="margin-top: 20px;">O vídeo abaixo explica o processo de preparo de corte da semente:</p>
@@ -119,7 +115,7 @@
               Assistir ao Vídeo de Instruções
             </a>
         </div>
-      </section>
+        </section>
 
       <section id="recomendacoes" class="card">
         <h2>Recomendações de Uso</h2>
@@ -129,7 +125,7 @@
           <li>Horário ideal de consumo: pela manhã após tomar seu café da manhã, caso não coma nada é recomnedado comer pelo menos uma banana para depois tomar sua dose diária de noz da índia.</li>
           <li>Não recomendado cortar mais de 1 semente por vez para garantir sua durabildade e eficácia.</li>
           <li>Por ser um produto natural ppode sofrer de alterações de cor e tamanho não tendo nenhum prejuizo em sua qualidade.</li>
-          <li>Guarde o produto em local fresco e seco.</li>
+S           <li>Guarde o produto em local fresco e seco.</li>
         </ul>
       </section>
 
@@ -142,8 +138,7 @@
           <li>Pessoas com problemas cardíacos, úleras ou doenças gastrointestinais graves.</li>
           <li>Pessoas alérgicas ao produto.</li>
           <li>Bariátricos.</li>
-          <li>Pessoas em tratamento com medicamentos controlados ou em tratamento oncológico.</li>
-          <li>Em caso de dúvida, suspenda o uso e procure orientação profissional.</li>
+s           <li>Pessoas em tratamento com medicamentos controlados ou em tratamento oncológico.</li>
         </ul>
         <p>Em caso de dúvida, suspenda o uso e procure orientação profissional.</p>
       </section>
@@ -158,7 +153,7 @@
               Embalagem com 8 sementes (tratamento para 36 dias).
               <br>Estimativa de perda de 1kg por semana.
               <span class="disclaimer">Lembre-se: os resultados dependem de cada organismo e do uso correto.</span>
-            </p>
+dot           </p>
           </div>
           <a href="https://wa.me/5511921537772" target="_blank" rel="noopener" class="button button-cta button-large">
             Comprar Agora e Mudar de Vida!
@@ -169,11 +164,11 @@
     </main>
   </div>
 
-    <script>
+  <script>
     const cepInput = document.getElementById('cepInput');
     const consultaBtn = document.getElementById('consultaBtn');
-    const resultadoCep = document.getElementById('resultadoCep');
-  
+  S   const resultadoCep = document.getElementById('resultadoCep');
+ s
     consultaBtn.addEventListener('click', () => {
       const cep = cepInput.value.replace(/\D/g, '');
   
@@ -192,7 +187,7 @@
         .then(response => response.json()) 
         .then(data => {
           if (data.erro) {
-            resultadoCep.innerHTML = 'CEP não encontrado.';
+SA           resultadoCep.innerHTML = 'CEP não encontrado.';
             resultadoCep.style.color = 'red';
           } else {
             resultadoCep.innerHTML = `
@@ -203,7 +198,7 @@
               </strong>
             `;
             resultadoCep.style.color = '#333';
-          }
+Si         }
         })
         .catch(error => {
           console.error('Erro ao consultar CEP:', error);
